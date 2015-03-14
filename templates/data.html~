@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+{% block content %}
+<script>
+//function loaddata()
+//{
+$(document).ready(function(){
+$("#subm").click(function(){
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","static/tweet.txt?t=" + Math.random(),true);//"{{ url_for('static', filename='tweet.txt')}}",true);
+xmlhttp.send();
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+});
+});
+</script>	
+	
+	</body>
+</html>
+{% endblock %}

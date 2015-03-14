@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="/home/ali/python/flask/microblog/static/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/home/ali/python/flask/microblog/static/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css" href="/home/ali/python/flask/microblog/static/css/bootstrap-responsive.css">
+<link rel="stylesheet" type="text/css" href="/home/ali/python/flask/microblog/static/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/home/ali/python/flask/microblog/static/css/bootstrap.css">
+<script src="/home/ali/python/flask/microblog/static/js/bootstrap.min.js"></script>
+<script src="/home/ali/python/flask/microblog/static/js/bootstrap.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+<script src="{{ url_for('static',filename='js/bootstrap.min.js')}}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.js')}}"></script>
+</head>
+<form id="Form1" class="form-horizontal" role="form" runat="server">
+    <div class="row">
+        <div class="form-group">
+            <label for="tbxContactPhone" class="col-sm-2 control-label">Year</label>
+            <div class="col-sm-4">
+                <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" MaxLength="4" />
+            </div>
+            <label class="col-sm-2 control-label">-</label>
+            <div class="col-sm-4">
+                <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server" MaxLength="4" />
+            </div>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
+
+
+
+

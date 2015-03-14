@@ -1,0 +1,106 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+<script src="{{ url_for('static',filename='bootstrap.min.js')}}"></script>
+</head>
+
+<script>
+function loaddata()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("tweet").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","static/tweet.txt?t=" + Math.random(),true);//"{{ url_for('static', filename='tweet.txt')}}",true);
+xmlhttp.send();
+document.getElementById("tweet").innerHTML=xmlhttp.responseText;
+}
+</script>	
+
+<script>
+function loadgit()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("gith").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","static/gith.txt?t=" + Math.random(),true);//"{{ url_for('static', filename='tweet.txt')}}",true);
+xmlhttp.send();
+document.getElementById("gith").innerHTML=xmlhttp.responseText;
+}
+</script>
+
+	<body>
+<div class="container">
+	<div class="jumbotron">
+	<h1 class="text-center">Twitter And Github Extractor</h1> 
+	</div>
+<div class="row">
+	<div class="col-md-4">
+	<form action="" method="post" name="login" class="form form-inline" role="form"><tr>
+	
+
+	
+        	        {{ form.hidden_tag() }}
+	
+        	        Twitter Name:
+        	        {{ form.url(size=43) }}
+        
+			<img src="{{ url_for('static',filename='image.png')}}" class="img-responsive" alt="Responsive image" height="42" width="42">
+			<input type="submit" name="subm" value="twit" class="btn btn-info"></input>
+			<div id="tweet"></div>
+	
+	</form></div>
+	<div class="col-md-4 col-md-offset-4">
+	<form action="" method="post" name="login" class="form-inline" role="form"><tr>
+		
+	        	{{ form.hidden_tag() }}
+                	Github Name:
+                	{{ form.git(size=43) }}	
+			<input type="submit" name="subm" value="git" class="btn btn-info"></input>
+			<div class="container" id="gith">	</div>
+	
+	</form></div>
+</div>
+</div>
+
+	<script>
+
+	{{loaddata}}
+	</script>
+	<script>
+
+	{{loadgit}}
+	</script>
+	
+	</body>
+</html>
